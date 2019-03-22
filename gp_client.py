@@ -3,7 +3,7 @@ from pylib.gp_util import *
 from pylib.hgp import *
 
 #%%
-globals().update(load_data("jordan_ok/"))
+# globals().update(load_data("jordan_ok/"))
 
 #%%
 GlobalStat.reset()
@@ -14,7 +14,7 @@ phase_init()
 def eval_f(value):
     print("end", end=" ")
     for i in range(3):
-        time.sleep(0.5)
+        time.sleep(1)
         print(i, end=" ")
     # return value ** 2
     return len(value)
