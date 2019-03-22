@@ -14,7 +14,7 @@ phase_init()
 def eval_f(value):
     print("end", end=" ")
     for i in range(3):
-        time.sleep(0.001)
+        time.sleep(0.5)
         print(i, end=" ")
     # return value ** 2
     return len(value)
