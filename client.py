@@ -5,8 +5,8 @@ from tqdm import tqdm
 #%%
 def eval_f(value):
     # print("end", end=" ")
-    for i in tqdm(range(100)):
-        time.sleep(0.05)
+    for i in tqdm(range(10)):
+        time.sleep(0.01)
         # print(i, end=" ")
     return len(value)
 
