@@ -6,7 +6,7 @@ def eval_f(value):
     for i in range(3):
         time.sleep(1)
         print(i, end=" ")
-    return value ** 2
+    return len(value)
 
 
 #%%
