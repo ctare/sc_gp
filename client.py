@@ -13,7 +13,8 @@ def eval_f(value):
     for i in tqdm(range(10)):
         time.sleep(0.01)
         # print(i, end=" ")
-    return len(string)
+    # return len(string)
+    return int(string) + 1
 
 
 #%%
