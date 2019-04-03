@@ -32,7 +32,7 @@ def eval_f(value):
     loss_v = eval_simple_tree(tree)
 
     print("loss_v", loss_v)
-    individual = creator.Individual(parse_simple_tree(tree))
+    individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
     edges, nodes, labels = get_graph(individual, GlobalStat.pset)
     g = nx.MultiDiGraph()
     for i, node in enumerate(nodes):
