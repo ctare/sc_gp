@@ -4,7 +4,7 @@ from pylib.hgp import *
 import json
 
 #%%
-# globals().update(load_data("jordan_ok/"))
+load_data("jordan_ok/")
 
 #%%
 GlobalStat.reset()
