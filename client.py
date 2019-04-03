@@ -3,6 +3,9 @@ from pylib.gp_util import *
 from pylib.hgp import *
 import json
 
+import tensorflow as tf
+tf.logging.set_verbosity(tf.logging.INFO)
+
 #%%
 load_data("jordan_ok/")
 
