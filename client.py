@@ -23,7 +23,8 @@ def eval_f(value):
     data = json.loads(value)
     tree = data["tree"]
     penalty = data["penalty"]
-    return eval_simple_tree(tree) * penalty
+    loss_v = eval_simple_tree(tree)
+    return float(np.mean(loss_v[-5:])) * penalty
 
 
 #%%
