@@ -49,7 +49,7 @@ def eval_f(value):
     agraph = nx.nx_agraph.to_agraph(g)
     # agraph.node_attr["shape"] = "circle"
     agraph.node_attr["fontsize"] = "20"
-    agraph.draw(f"tree_{evcnt}.png", prog="dot", format="png")
+    agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
 
     print("loss", float(np.mean(loss_v[-5:])), "penalty", penalty)
     return float(np.mean(loss_v[-5:])) * penalty
