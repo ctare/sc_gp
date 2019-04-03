@@ -17,7 +17,7 @@ def eval_f(value):
         time.sleep(0.01)
         print(i, end=" ")
     # return value ** 2
-    return len(value)
+    return -len(value)
     # return eval_simple_tree(value)
 
 
