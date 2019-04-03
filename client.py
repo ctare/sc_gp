@@ -27,6 +27,7 @@ def eval_f(value):
     tree = data["tree"]
     penalty = data["penalty"]
     loss_v = eval_simple_tree(tree)
+    print("loss", float(np.mean(loss_v[-5:])), "penalty", penalty)
     return float(np.mean(loss_v[-5:])) * penalty
 
 
