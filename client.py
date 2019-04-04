@@ -19,10 +19,11 @@ evcnt = 0
 def eval_f(value):
     global evcnt
     evcnt += 1
-    # print("learning...   model size ->", len(value))
-    # data = json.loads(value)
-    # tree = data["tree"]
-    # penalty = data["penalty"]
+    print("learning...   model size ->", len(value))
+    data = json.loads(value)
+    tree = data["tree"]
+    penalty = data["penalty"]
+    
     # with open("/root/share/tree_test.txt", "w") as f:
     #     f.write(json.dumps(tree))
     # individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
