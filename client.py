@@ -31,9 +31,6 @@ def eval_f(value):
     penalty = data["penalty"]
     with open("tree_test.txt", "w") as f:
         f.write(json.dumps(tree))
-    loss_v = eval_simple_tree(tree)
-
-    print("loss_v", loss_v)
     individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
     edges, nodes, labels = get_graph(individual, GlobalStat.pset)
     g = nx.MultiDiGraph()
@@ -52,6 +49,8 @@ def eval_f(value):
     # agraph.node_attr["shape"] = "circle"
     agraph.node_attr["fontsize"] = "20"
     agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
+
+    loss_v = eval_simple_tree(tree)
 
     print("loss", float(np.mean(loss_v[-5:])), "penalty", penalty)
     return float(np.mean(loss_v[-5:])) * penalty
