@@ -29,7 +29,7 @@ def eval_f(value):
     data = json.loads(value)
     tree = data["tree"]
     penalty = data["penalty"]
-    with open("tree_test.txt", "w") as f:
+    with open("/root/share/tree_test.txt", "w") as f:
         f.write(json.dumps(tree))
     individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
     edges, nodes, labels = get_graph(individual, GlobalStat.pset)
@@ -50,7 +50,10 @@ def eval_f(value):
     agraph.node_attr["fontsize"] = "20"
     agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
 
-    loss_v = eval_simple_tree(tree)
+    try:
+        loss_v = eval_simple_tree(tree)
+    except:
+        exit()
 
     print("loss", float(np.mean(loss_v[-5:])), "penalty", penalty)
     return float(np.mean(loss_v[-5:])) * penalty
