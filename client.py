@@ -30,26 +30,26 @@ def eval_f(value):
     tree = data["tree"]
     penalty = data["penalty"]
     loss_v = eval_simple_tree(tree)
-
-    print("loss_v", loss_v)
-    individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
-    edges, nodes, labels = get_graph(individual, GlobalStat.pset)
-    g = nx.MultiDiGraph()
-    for i, node in enumerate(nodes):
-        # nodes[i] = (node, {"label": labels[node]})
-        if type(labels[node]) == tuple:
-            name, v = labels[node]
-            nodes[i] = (node, {"label": name, **v})
-        else:
-            nodes[i] = (node, {"label": labels[node]})
-
-    g.add_nodes_from(nodes)
-    g.add_edges_from(edges)
-
-    agraph = nx.nx_agraph.to_agraph(g)
-    # agraph.node_attr["shape"] = "circle"
-    agraph.node_attr["fontsize"] = "20"
-    agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
+    
+    # print("loss_v", loss_v)
+    # individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
+    # edges, nodes, labels = get_graph(individual, GlobalStat.pset)
+    # g = nx.MultiDiGraph()
+    # for i, node in enumerate(nodes):
+    #     # nodes[i] = (node, {"label": labels[node]})
+    #     if type(labels[node]) == tuple:
+    #         name, v = labels[node]
+    #         nodes[i] = (node, {"label": name, **v})
+    #     else:
+    #         nodes[i] = (node, {"label": labels[node]})
+    #
+    # g.add_nodes_from(nodes)
+    # g.add_edges_from(edges)
+    #
+    # agraph = nx.nx_agraph.to_agraph(g)
+    # # agraph.node_attr["shape"] = "circle"
+    # agraph.node_attr["fontsize"] = "20"
+    # agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
 
     print("loss", float(np.mean(loss_v[-5:])), "penalty", penalty)
     return float(np.mean(loss_v[-5:])) * penalty
