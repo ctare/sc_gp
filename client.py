@@ -5,6 +5,7 @@ import json
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+import time
 
 #%%
 load_data("jordan_ok/")
@@ -46,7 +47,14 @@ def eval_f(value):
     # agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
 
     # try:
+    start_time = time.time()
     loss_v = eval_simple_tree(tree)
+    end_time = time.time()
+    with open("/root/share/learning_time.txt", "a") as f:
+        f.write(str(end_time - start_time))
+
+    with open("/root/share/timestamp.txt", "a") as f:
+        f.write(str(start_time))
     # except:
     #     print("exception!!!!")
     #     loss_v = [1000] * 5
