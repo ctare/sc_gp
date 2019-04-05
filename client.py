@@ -6,8 +6,6 @@ import json
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-import time
-
 #%%
 load_data("jordan_ok/")
 
@@ -25,7 +23,9 @@ def eval_f(value):
     data = json.loads(value)
     tree = data["tree"]
     penalty = data["penalty"]
-
+    
+    # with open("/root/share/tree_test.txt", "w") as f:
+    #     f.write(json.dumps(tree))
     # individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
     # edges, nodes, labels = get_graph(individual, GlobalStat.pset)
     # g = nx.MultiDiGraph()
@@ -46,11 +46,7 @@ def eval_f(value):
     # agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
 
     try:
-        start_time = time.time()
         loss_v = eval_simple_tree(tree)
-        end_time = time.time()
-        with open(f"/root/share/tree_test_{evcnt}_{end_time - start_time}.txt", "w") as f:
-            f.write(json.dumps(tree))
     except:
         print("exception!!!!")
         loss_v = [1000] * 5
