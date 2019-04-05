@@ -51,10 +51,10 @@ def eval_f(value):
     loss_v = eval_simple_tree(tree)
     end_time = time.time()
     with open("/root/share/learning_time.txt", "a") as f:
-        f.write(str(end_time - start_time))
+        f.write(str(end_time - start_time) + "\n")
 
     with open("/root/share/timestamp.txt", "a") as f:
-        f.write(str(start_time))
+        f.write(str(start_time) + "\n")
     # except:
     #     print("exception!!!!")
     #     loss_v = [1000] * 5
