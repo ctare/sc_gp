@@ -23,7 +23,7 @@ def eval_f(value):
     data = json.loads(value)
     tree = data["tree"]
     penalty = data["penalty"]
-    
+
     # with open("/root/share/tree_test.txt", "w") as f:
     #     f.write(json.dumps(tree))
     # individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
@@ -45,11 +45,11 @@ def eval_f(value):
     # agraph.node_attr["fontsize"] = "20"
     # agraph.draw(f"/root/share/tree_{evcnt}.png", prog="dot", format="png")
 
-    try:
-        loss_v = eval_simple_tree(tree)
-    except:
-        print("exception!!!!")
-        loss_v = [1000] * 5
+    # try:
+    loss_v = eval_simple_tree(tree)
+    # except:
+    #     print("exception!!!!")
+    #     loss_v = [1000] * 5
 
     print("loss", float(np.mean(loss_v[-5:])), "penalty", penalty)
     return float(np.mean(loss_v[-5:])) * penalty
