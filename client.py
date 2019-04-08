@@ -48,7 +48,9 @@ def eval_f(value):
 
     # try:
     start_time = time.time()
-    loss_v = eval_simple_tree(tree)
+    # loss_v = eval_simple_tree(tree)
+    individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
+    loss_v = [len(str(individual))] * 5
     end_time = time.time()
     with open("/root/share/learning_time.txt", "a") as f:
         f.write(str(end_time - start_time) + "\n")
