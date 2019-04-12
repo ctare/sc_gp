@@ -50,7 +50,7 @@ def eval_f(value):
     start_time = time.time()
     # loss_v = eval_simple_tree(tree)
     # -- test --
-    individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
+    individual = creator.Individual(parse_simple_tree(tree))
     loss_v = [-len(str(individual))] * 5
     # -- end --
     end_time = time.time()
