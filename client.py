@@ -23,7 +23,7 @@ def eval_f(value):
     print("learning...   model size ->", len(value))
     data = json.loads(value)
     tree = data["tree"]
-    penalty = data["penalty"]
+    # penalty = data["penalty"]
 
     # with open("/root/share/tree_test.txt", "w") as f:
     #     f.write(json.dumps(tree))
@@ -49,8 +49,10 @@ def eval_f(value):
     # try:
     start_time = time.time()
     # loss_v = eval_simple_tree(tree)
+    # -- test --
     individual = creator.Individual(parse_simple_tree(tree, GlobalStat.pset, GlobalStat.phase))
-    loss_v = [len(str(individual))] * 5
+    loss_v = [-len(str(individual))] * 5
+    # -- end --
     end_time = time.time()
     with open("/root/share/learning_time.txt", "a") as f:
         f.write(str(end_time - start_time) + "\n")
@@ -61,8 +63,7 @@ def eval_f(value):
     #     print("exception!!!!")
     #     loss_v = [1000] * 5
 
-    print("loss", float(np.mean(loss_v[-5:])), "penalty", penalty)
-    return float(np.mean(loss_v[-5:])) * penalty
+    return float(np.mean(loss_v[-5:]))
 
 
 #%%
